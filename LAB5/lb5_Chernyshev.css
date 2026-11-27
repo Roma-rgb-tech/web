@@ -1,0 +1,326 @@
+/* =========================================================
+   Лабораторна робота 5. Модель відображення
+   «Гаражний розпродаж»
+   Без float, JS, flex та grid: лише inline-block,
+   блокова модель, псевдокласи :checked / :hover
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #333;
+  background-color: #fff;
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  border: 0;
+}
+
+/* ---------- Перемикач виду ---------- */
+.view-input {
+  display: none;
+}
+
+.header {
+  padding: 16px 20px 6px;
+}
+
+.header__title {
+  margin: 0 0 10px;
+  font-size: 28px;
+  font-weight: 400;
+  color: #1c2b3a;
+}
+
+.switch__btn {
+  display: inline-block;
+  margin-right: 26px;
+  font-size: 20px;
+  line-height: 24px;
+  color: #999;
+  vertical-align: middle;
+  cursor: pointer;
+  transition: color 0.2s;
+}
+
+.switch__btn:hover {
+  color: #3e6d9c;
+}
+
+#view-tile:checked ~ .header .switch__btn--tile,
+#view-list:checked ~ .header .switch__btn--list {
+  color: #1c2b3a;
+}
+
+/* Іконки, намальовані тінями */
+.icon {
+  position: relative;
+  display: inline-block;
+  width: 24px;
+  height: 22px;
+  margin-right: 8px;
+  vertical-align: -3px;
+}
+
+.icon--tile::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: currentColor;
+  box-shadow:
+    8px 0 0 currentColor, 16px 0 0 currentColor,
+    0 8px 0 currentColor, 8px 8px 0 currentColor, 16px 8px 0 currentColor,
+    0 16px 0 currentColor, 8px 16px 0 currentColor, 16px 16px 0 currentColor;
+  content: "";
+}
+
+.icon--list::before {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 6px;
+  height: 6px;
+  background-color: currentColor;
+  box-shadow: 0 8px 0 currentColor, 0 16px 0 currentColor;
+  content: "";
+}
+
+.icon--list::after {
+  position: absolute;
+  top: 0;
+  left: 8px;
+  width: 16px;
+  height: 6px;
+  background-color: currentColor;
+  box-shadow: 0 8px 0 currentColor, 0 16px 0 currentColor;
+  content: "";
+}
+
+/* ---------- Каталог: картки inline-block ---------- */
+.catalog {
+  padding: 0 10px 20px;
+  font-size: 0; /* прибирає пробіли між inline-block */
+}
+
+.card {
+  display: inline-block;
+  width: calc(100% - 20px);
+  height: 580px;
+  margin: 10px;
+  padding: 14px 24px;
+  overflow: hidden;
+  font-size: 14px;
+  vertical-align: top;
+  background-color: #fff;
+  border: 1px solid #d9d9d9;
+  transition: box-shadow 0.25s, border-color 0.25s;
+}
+
+.card:hover {
+  border-color: #b5c7d9;
+  box-shadow: 0 6px 18px rgba(30, 60, 90, 0.2);
+}
+
+/* ---------- Фото: центр по горизонталі й вертикалі ---------- */
+.card__photo {
+  display: block;
+  height: 250px;
+  overflow: hidden;
+  line-height: 250px;     /* висота рядка = висоті блока */
+  text-align: center;     /* центр по горизонталі */
+}
+
+.card__photo img {
+  display: inline-block;
+  max-width: 100%;
+  max-height: 240px;
+  vertical-align: middle; /* центр по вертикалі */
+  transition: transform 0.3s;
+}
+
+.card__photo:hover img {
+  transform: scale(1.08);
+}
+
+/* ---------- Інформація ---------- */
+.card__info {
+  padding-top: 14px;
+}
+
+.card__name {
+  display: block;
+  overflow: hidden;
+  font-size: 20px;
+  line-height: 28px;
+  color: #3e6d9c;
+  text-overflow: ellipsis; /* обрізання довгої назви */
+  white-space: nowrap;
+  transition: color 0.2s;
+}
+
+.card__name:hover {
+  color: #e0475a;
+  text-decoration: none;
+}
+
+.card__category {
+  display: inline-block;
+  margin-top: 6px;
+  margin-bottom: 2px;
+  padding: 1px 4px;
+  margin-left: -4px;
+  font-size: 13px;
+  color: #777;
+  text-decoration: none;
+  border-radius: 3px;
+  transition: color 0.2s, background-color 0.2s;
+}
+
+.card__category:hover {
+  color: #fff;
+  background-color: #3e6d9c;
+}
+
+.card__price {
+  font-size: 22px;
+  font-weight: 700;
+  color: #e0475a;
+}
+
+.card__desc {
+  margin-top: 16px;
+  font-size: 14px;
+  line-height: 1.45;
+  color: #555;
+}
+
+/* ---------- Шкала стану (зірки) ---------- */
+.rating {
+  display: block;
+  text-align: left;
+  direction: rtl;               /* зірки 5..1 стоять у DOM, показуються 1..5 */
+  unicode-bidi: bidi-override;
+}
+
+.rating input {
+  display: none;
+}
+
+.rating label {
+  display: inline-block;
+  padding-right: 2px;
+  font-size: 26px;
+  line-height: 30px;
+  color: #c9d3dc;
+  cursor: pointer;
+  transition: color 0.15s;
+}
+
+.rating label::before {
+  content: "\2605";
+}
+
+/* обрана оцінка запам'ятовується */
+.rating input:checked ~ label {
+  color: #f0a30a;
+}
+
+/* під час наведення показуємо майбутній вибір */
+.rating:hover input:checked ~ label {
+  color: #c9d3dc;
+}
+
+.rating:hover input + label:hover,
+.rating:hover label:hover ~ label {
+  color: #ffbf33;
+}
+
+/* ---------- Вигляд «Список» ---------- */
+#view-list:checked ~ .catalog .card {
+  width: calc(100% - 20px);
+  height: auto;
+  padding: 20px 24px;
+  font-size: 0; /* без пробілів між колонками */
+}
+
+#view-list:checked ~ .catalog .card__photo,
+#view-list:checked ~ .catalog .card__info,
+#view-list:checked ~ .catalog .card__desc {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#view-list:checked ~ .catalog .card__photo {
+  width: 28%;
+  height: 230px;
+  line-height: 230px;
+}
+
+#view-list:checked ~ .catalog .card__photo img {
+  max-height: 200px;
+}
+
+#view-list:checked ~ .catalog .card__info {
+  width: 38%;
+  padding: 0 20px 0 40px;
+}
+
+#view-list:checked ~ .catalog .card__name {
+  white-space: normal;
+}
+
+#view-list:checked ~ .catalog .card__desc {
+  width: 34%;
+  margin-top: 0;
+}
+
+/* ---------- Адаптивність: кількість карток у рядку ---------- */
+@media (min-width: 600px) {
+  .card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (min-width: 900px) {
+  .card {
+    width: calc(33.333% - 20px);
+  }
+}
+
+@media (min-width: 1250px) {
+  .card {
+    width: calc(25% - 20px);
+  }
+}
+
+@media (min-width: 1700px) {
+  .card {
+    width: calc(20% - 20px);
+  }
+}
+
+/* у вузькому вікні список стає «стовпчиком» */
+@media (max-width: 700px) {
+  #view-list:checked ~ .catalog .card__photo,
+  #view-list:checked ~ .catalog .card__info,
+  #view-list:checked ~ .catalog .card__desc {
+    display: block;
+    width: 100%;
+    padding: 0;
+  }
+
+  #view-list:checked ~ .catalog .card__desc {
+    margin-top: 12px;
+  }
+}

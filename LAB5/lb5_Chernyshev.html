@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Гаражний розпродаж</title>
+  <link rel="stylesheet" href="lb5_Chernyshev.css">
+</head>
+<body>
+  <input type="radio" name="view" id="view-tile" class="view-input" checked>
+  <input type="radio" name="view" id="view-list" class="view-input">
+
+  <header class="header">
+    <h1 class="header__title">Гаражний розпродаж</h1>
+    <div class="switch">
+      <label for="view-tile" class="switch__btn switch__btn--tile"><span class="icon icon--tile"></span>Плитка</label>
+      <label for="view-list" class="switch__btn switch__btn--list"><span class="icon icon--list"></span>Список</label>
+    </div>
+  </header>
+
+  <main class="catalog">
+      <article class="card">
+        <a class="card__photo" href="#">
+          <img src="img/fairy.jpg" alt="Рідкий засіб для миття посуду Fairy Ягідна свіжість 500 мл">
+        </a>
+        <div class="card__info">
+          <a class="card__name" href="#" title="Рідкий засіб для миття посуду Fairy Ягідна свіжість 500 мл">Рідкий засіб для миття посуду Fairy Ягідна свіжість 500 мл</a>
+          <a class="card__category" href="#">Кухонне приладдя</a>
+          <div class="rating">
+            <input type="radio" name="rate1" id="rate1-5" value="5" checked>
+            <label for="rate1-5" title="5 з 5"></label>
+            <input type="radio" name="rate1" id="rate1-4" value="4">
+            <label for="rate1-4" title="4 з 5"></label>
+            <input type="radio" name="rate1" id="rate1-3" value="3">
+            <label for="rate1-3" title="3 з 5"></label>
+            <input type="radio" name="rate1" id="rate1-2" value="2">
+            <label for="rate1-2" title="2 з 5"></label>
+            <input type="radio" name="rate1" id="rate1-1" value="1">
+            <label for="rate1-1" title="1 з 5"></label>
+          </div>
+          <p class="card__price">22 грн.</p>
+        </div>
+        <p class="card__desc"><b>Fairy</b> – економний рідкий засіб для миття посуду з ароматом ягід. Можна мити скляні, пластикові, металеві, керамічні та дерев'яні поверхні. Залишилось майже пів пляшки.</p>
+      </article>
+      <article class="card">
+        <a class="card__photo" href="#">
+          <img src="img/finish.jpg" alt="Сіль для посудомийних машин FINISH 1.5 кг">
+        </a>
+        <div class="card__info">
+          <a class="card__name" href="#" title="Сіль для посудомийних машин FINISH 1.5 кг">Сіль для посудомийних машин FINISH 1.5 кг</a>
+          <a class="card__category" href="#">Побутова хімія</a>
+          <div class="rating">
+            <input type="radio" name="rate2" id="rate2-5" value="5" checked>
+            <label for="rate2-5" title="5 з 5"></label>
+            <input type="radio" name="rate2" id="rate2-4" value="4">
+            <label for="rate2-4" title="4 з 5"></label>
+            <input type="radio" name="rate2" id="rate2-3" value="3">
+            <label for="rate2-3" title="3 з 5"></label>
+            <input type="radio" name="rate2" id="rate2-2" value="2">
+            <label for="rate2-2" title="2 з 5"></label>
+            <input type="radio" name="rate2" id="rate2-1" value="1">
+            <label for="rate2-1" title="1 з 5"></label>
+          </div>
+          <p class="card__price">105 грн.</p>
+        </div>
+        <p class="card__desc">Покращує роботу посудомийної машини. Пом'якшує воду, усуває патьоки, захищає від накипу та вапняного нальоту. Упаковка нова, не відкривалась.</p>
+      </article>
+      <article class="card">
+        <a class="card__photo" href="#">
+          <img src="img/pot.jpg" alt="Каструля BergHOFF Zeno 1.8 л з кришкою">
+        </a>
+        <div class="card__info">
+          <a class="card__name" href="#" title="Каструля BergHOFF Zeno 1.8 л з кришкою">Каструля BergHOFF Zeno 1.8 л з кришкою</a>
+          <a class="card__category" href="#">Посуд</a>
+          <div class="rating">
+            <input type="radio" name="rate3" id="rate3-5" value="5">
+            <label for="rate3-5" title="5 з 5"></label>
+            <input type="radio" name="rate3" id="rate3-4" value="4">
+            <label for="rate3-4" title="4 з 5"></label>
+            <input type="radio" name="rate3" id="rate3-3" value="3">
+            <label for="rate3-3" title="3 з 5"></label>
+            <input type="radio" name="rate3" id="rate3-2" value="2" checked>
+            <label for="rate3-2" title="2 з 5"></label>
+            <input type="radio" name="rate3" id="rate3-1" value="1">
+            <label for="rate3-1" title="1 з 5"></label>
+          </div>
+          <p class="card__price">1566 грн.</p>
+        </div>
+        <p class="card__desc">Матеріал: нержавіюча сталь<br>Тип: традиційна каструля<br>Діаметр: 16 см<br>Кришка: нержавіюча сталь<br>Кріплення ручок: на заклепках<br>Країна-виробник: Бельгія</p>
+      </article>
+      <article class="card">
+        <a class="card__photo" href="#">
+          <img src="img/teapot.jpg" alt="Чайник для заварювання Krauff 1.2 л">
+        </a>
+        <div class="card__info">
+          <a class="card__name" href="#" title="Чайник для заварювання Krauff 1.2 л">Чайник для заварювання Krauff 1.2 л</a>
+          <a class="card__category" href="#">Посуд</a>
+          <div class="rating">
+            <input type="radio" name="rate4" id="rate4-5" value="5">
+            <label for="rate4-5" title="5 з 5"></label>
+            <input type="radio" name="rate4" id="rate4-4" value="4" checked>
+            <label for="rate4-4" title="4 з 5"></label>
+            <input type="radio" name="rate4" id="rate4-3" value="3">
+            <label for="rate4-3" title="3 з 5"></label>
+            <input type="radio" name="rate4" id="rate4-2" value="2">
+            <label for="rate4-2" title="2 з 5"></label>
+            <input type="radio" name="rate4" id="rate4-1" value="1">
+            <label for="rate4-1" title="1 з 5"></label>
+          </div>
+          <p class="card__price">700 грн.</p>
+        </div>
+        <p class="card__desc">Гарний чайник для заварювання вдало впишеться в інтер'єр сучасної кухні, а прозорі стінки дозволяють спостерігати за процесом заварювання улюбленого чаю.</p>
+      </article>
+      <article class="card">
+        <a class="card__photo" href="#">
+          <img src="img/chair.jpg" alt="Стілець Примтекс Плюс Sylwia CZ-3 Black">
+        </a>
+        <div class="card__info">
+          <a class="card__name" href="#" title="Стілець Примтекс Плюс Sylwia CZ-3 Black">Стілець Примтекс Плюс Sylwia CZ-3 Black</a>
+          <a class="card__category" href="#">Меблі</a>
+          <div class="rating">
+            <input type="radio" name="rate5" id="rate5-5" value="5">
+            <label for="rate5-5" title="5 з 5"></label>
+            <input type="radio" name="rate5" id="rate5-4" value="4" checked>
+            <label for="rate5-4" title="4 з 5"></label>
+            <input type="radio" name="rate5" id="rate5-3" value="3">
+            <label for="rate5-3" title="3 з 5"></label>
+            <input type="radio" name="rate5" id="rate5-2" value="2">
+            <label for="rate5-2" title="2 з 5"></label>
+            <input type="radio" name="rate5" id="rate5-1" value="1">
+            <label for="rate5-1" title="1 з 5"></label>
+          </div>
+          <p class="card__price">717 грн.</p>
+        </div>
+        <p class="card__desc">Матеріал оббивки: шкірозамінник<br>Розміри сидіння: 48 х 45 см<br>Каркас: хромована сталь<br>Країна-виробник: Україна</p>
+      </article>
+      <article class="card">
+        <a class="card__photo" href="#">
+          <img src="img/crib.jpg" alt="Дитяче ліжечко Верес Соня ЛД6 маятник з ящиком">
+        </a>
+        <div class="card__info">
+          <a class="card__name" href="#" title="Дитяче ліжечко Верес Соня ЛД6 маятник з ящиком">Дитяче ліжечко Верес Соня ЛД6 маятник з ящиком</a>
+          <a class="card__category" href="#">Меблі</a>
+          <div class="rating">
+            <input type="radio" name="rate6" id="rate6-5" value="5">
+            <label for="rate6-5" title="5 з 5"></label>
+            <input type="radio" name="rate6" id="rate6-4" value="4">
+            <label for="rate6-4" title="4 з 5"></label>
+            <input type="radio" name="rate6" id="rate6-3" value="3" checked>
+            <label for="rate6-3" title="3 з 5"></label>
+            <input type="radio" name="rate6" id="rate6-2" value="2">
+            <label for="rate6-2" title="2 з 5"></label>
+            <input type="radio" name="rate6" id="rate6-1" value="1">
+            <label for="rate6-1" title="1 з 5"></label>
+          </div>
+          <p class="card__price">3000 грн.</p>
+        </div>
+        <p class="card__desc">Ліжечко Соня ЛД6 зроблене з натурального дерева. Має маятниковий механізм і висувний ящик для білизни. Впишеться в інтер'єр будь-якої дитячої кімнати.</p>
+      </article>
+  </main>
+</body>
+</html>
