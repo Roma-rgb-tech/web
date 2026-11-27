@@ -1,0 +1,312 @@
+/* =========================================================
+   Лабораторна робота 6. Позиціювання
+   Інтерактивна галерея рецептів
+   Без JS, flex та grid: position, inline-block,
+   :hover, :target, :checked, transform
+   ========================================================= */
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 900px;
+  font-family: Verdana, Tahoma, sans-serif;
+  color: #222;
+  background-color: #fff;
+}
+
+.page {
+  position: relative;
+  max-width: 1360px;
+  margin: 0 auto;
+  padding: 30px 70px 520px; /* знизу місце для картки рецепта */
+}
+
+.page__title {
+  margin: 0 0 50px;
+  font-family: Georgia, serif;
+  font-size: 34px;
+  font-weight: 400;
+  color: #3e6d9c;
+  text-align: center;
+}
+
+/* ---------- Слайдер ---------- */
+.slider-input {
+  display: none;
+}
+
+.slider {
+  position: relative;
+  z-index: 2; /* картка рецепта над крапками */
+}
+
+.slider__viewport {
+  position: relative;
+  margin: 0 -8px;
+  /* обрізаємо лише по горизонталі, щоб картка рецепта
+     могла виходити вниз за межі слайдера */
+  clip-path: inset(-2000px 0 -2000px 0);
+}
+
+.slider__track {
+  position: relative;
+  width: 200%;             /* 8 фото = 2 екрани по 4 фото */
+  margin: 0;
+  padding: 0;
+  font-size: 0;
+  white-space: nowrap;
+  list-style: none;
+  transition: transform 0.6s ease;
+}
+
+/* зсув стрічки на 1 фото (12.5% ширини стрічки) */
+#slide-2:checked ~ .slider .slider__track {
+  transform: translateX(-12.5%);
+}
+
+#slide-3:checked ~ .slider .slider__track {
+  transform: translateX(-25%);
+}
+
+#slide-4:checked ~ .slider .slider__track {
+  transform: translateX(-37.5%);
+}
+
+#slide-5:checked ~ .slider .slider__track {
+  transform: translateX(-50%);
+}
+
+/* ---------- Картка-фото ---------- */
+.item {
+  position: relative;
+  display: inline-block;
+  width: 12.5%;
+  padding: 0 8px;
+  vertical-align: top;
+  white-space: normal;
+}
+
+.item__link {
+  position: relative;
+  display: block;
+  height: 230px;
+  color: inherit;
+  text-decoration: none;
+}
+
+.item__img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ---------- Опис рецепта при наведенні (Макет 2) ---------- */
+.recipe {
+  position: absolute;
+  top: -40px;
+  right: -8px;
+  left: -8px;
+  z-index: 10;
+  display: block;
+  padding: 18px 18px 20px;
+  visibility: hidden;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+  opacity: 0;
+  transform: translateY(10px);
+  transition: opacity 0.25s, transform 0.25s, visibility 0.25s;
+}
+
+.item:hover .recipe {
+  visibility: visible;
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.recipe__img {
+  display: block;
+  width: 100%;
+  height: 230px;
+  object-fit: cover;
+}
+
+.recipe__title {
+  display: block;
+  padding: 12px 6px 8px;
+  font-size: 17px;
+  font-weight: 700;
+  color: #3e6d9c;
+  text-decoration: underline;
+  background-color: #eee;
+}
+
+.recipe__text {
+  display: block;
+  padding: 4px 12px 14px;
+  font-size: 12px;
+  line-height: 1.4;
+  background-color: #eee;
+}
+
+.recipe__list {
+  display: block;
+  margin-bottom: 12px;
+  font-style: italic;
+}
+
+.recipe__list span {
+  display: block;
+}
+
+/* ---------- Стрілки (Макет 5) ---------- */
+.arrow {
+  position: absolute;
+  top: 50%;
+  display: none;
+  width: 0;
+  height: 0;
+  margin-top: -38px;
+  border-top: 38px solid transparent;
+  border-bottom: 38px solid transparent;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.arrow--prev {
+  left: -58px;
+  border-right: 36px solid #a9b4bf;
+}
+
+.arrow--next {
+  right: -58px;
+  border-left: 36px solid #a9b4bf;
+}
+
+.arrow--prev:hover {
+  border-right-color: #6d7f91;
+}
+
+.arrow--next:hover {
+  border-left-color: #6d7f91;
+}
+
+/* для кожного стану показуємо лише потрібні стрілки */
+#slide-1:checked ~ .slider .arrow--next.arrow--to-2,
+#slide-2:checked ~ .slider .arrow--prev.arrow--to-1,
+#slide-2:checked ~ .slider .arrow--next.arrow--to-3,
+#slide-3:checked ~ .slider .arrow--prev.arrow--to-2,
+#slide-3:checked ~ .slider .arrow--next.arrow--to-4,
+#slide-4:checked ~ .slider .arrow--prev.arrow--to-3,
+#slide-4:checked ~ .slider .arrow--next.arrow--to-5,
+#slide-5:checked ~ .slider .arrow--prev.arrow--to-4 {
+  display: block;
+}
+
+/* ---------- Радіокнопки-крапки (Макет 4) ---------- */
+.dots {
+  margin-top: 26px;
+  font-size: 0;
+  text-align: center;
+}
+
+.dot {
+  position: relative;
+  display: inline-block;
+  width: 18px;
+  height: 18px;
+  margin: 0 7px;
+  background-color: #f1f1f1;
+  border: 1px solid #b7b7b7;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.dot::after {
+  position: absolute;
+  top: 4px;
+  left: 4px;
+  width: 8px;
+  height: 8px;
+  background-color: transparent;
+  border-radius: 50%;
+  content: "";
+}
+
+#slide-1:checked ~ .dots .dot--1::after,
+#slide-2:checked ~ .dots .dot--2::after,
+#slide-3:checked ~ .dots .dot--3::after,
+#slide-4:checked ~ .dots .dot--4::after,
+#slide-5:checked ~ .dots .dot--5::after {
+  background-color: #555;
+}
+
+/* ---------- Модальне вікно (Макет 3) ---------- */
+.modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: none;
+}
+
+.modal:target {
+  display: block;
+}
+
+.modal__overlay {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(70, 90, 112, 0.6);
+}
+
+.modal__img {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  max-width: 80%;      /* велике фото вміщується в рамки */
+  max-height: 75%;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  transform: translate(-50%, -50%);
+}
+
+.modal__close {
+  position: absolute;
+  top: 36px;
+  right: 44px;
+  width: 64px;
+  height: 64px;
+}
+
+.modal__close::before,
+.modal__close::after {
+  position: absolute;
+  top: 31px;
+  left: -10px;
+  width: 84px;
+  height: 3px;
+  background-color: #fff;
+  content: "";
+}
+
+.modal__close::before {
+  transform: rotate(45deg);
+}
+
+.modal__close::after {
+  transform: rotate(-45deg);
+}
+
+.modal__close:hover::before,
+.modal__close:hover::after {
+  background-color: #e0475a;
+}

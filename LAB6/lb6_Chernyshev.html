@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Галерея рецептів</title>
+  <link rel="stylesheet" href="lb6_Chernyshev.css">
+</head>
+<body>
+  <div class="page" id="gallery">
+    <h1 class="page__title">Записник рецептів</h1>
+
+    <!-- стан слайдера: радіокнопки стоять перед слайдером, щоб працював селектор ~ -->
+    <input type="radio" name="slide" id="slide-1" class="slider-input" checked>
+    <input type="radio" name="slide" id="slide-2" class="slider-input">
+    <input type="radio" name="slide" id="slide-3" class="slider-input">
+    <input type="radio" name="slide" id="slide-4" class="slider-input">
+    <input type="radio" name="slide" id="slide-5" class="slider-input">
+
+    <div class="slider">
+      <div class="slider__viewport">
+        <ul class="slider__track">
+        <li class="item">
+          <a class="item__link" href="#modal-1">
+            <img class="item__img" src="img/cake1.jpg" alt="Торт «Сметанковий»">
+            <span class="recipe">
+              <img class="recipe__img" src="img/cake1.jpg" alt="">
+              <span class="recipe__title">Торт «Сметанковий»</span>
+              <span class="recipe__text">
+                <span class="recipe__list"><span>4 яйця</span><span>200 г цукру</span><span>200 г сметани</span><span>2 ст. л. какао</span><span>250 г борошна</span><span>1 ч. л. соди</span><span>Крем: 500 г сметани 25%, 150 г цукрової пудри, 100 г горіхів</span></span>
+                Яйця збиваємо з цукром до пишної піни, додаємо сметану і соду. Частину тіста змішуємо з какао. Печемо два світлі й один темний корж при 180 °C близько 25 хв. Сметану збиваємо з пудрою, промащуємо охолоджені коржі, посипаємо горіхами й залишаємо на ніч у холодильнику.
+              </span>
+            </span>
+          </a>
+        </li>
+        <li class="item">
+          <a class="item__link" href="#modal-2">
+            <img class="item__img" src="img/cake2.jpg" alt="Горіхово-морквяний кекс">
+            <span class="recipe">
+              <img class="recipe__img" src="img/cake2.jpg" alt="">
+              <span class="recipe__title">Горіхово-морквяний кекс</span>
+              <span class="recipe__text">
+                <span class="recipe__list"><span>200 г цукру</span><span>160 мл рослинної олії</span><span>60 г йогурту</span><span>3 яйця</span><span>250 г борошна</span><span>1 ч. л. розпушувача</span><span>2 ч. л. кориці</span><span>260 г моркви</span><span>100 г горіхів пекан</span></span>
+                Олію змішуємо з цукром, додаємо йогурт, а потім по одному яйцю. Окремо змішуємо сухі інгредієнти й поступово вводимо в рідке тісто. Наприкінці додаємо натерту моркву та подрібнені горіхи. Випікаємо у змащеній формі при 170 °C 30–40 хв.
+              </span>
+            </span>
+          </a>
+        </li>
+        <li class="item">
+          <a class="item__link" href="#modal-3">
+            <img class="item__img" src="img/cake3.jpg" alt="Полуничний торт з маком">
+            <span class="recipe">
+              <img class="recipe__img" src="img/cake3.jpg" alt="">
+              <span class="recipe__title">Полуничний торт з маком</span>
+              <span class="recipe__text">
+                <span class="recipe__list"><span>5 яєць</span><span>180 г цукру</span><span>150 г борошна</span><span>60 г маку</span><span>400 г полуниці</span><span>Крем: 400 мл вершків 33%, 250 г маскарпоне, 80 г пудри</span></span>
+                Збиваємо яйця з цукром, обережно вмішуємо борошно та мак. Печемо бісквіт при 180 °C 30 хв і розрізаємо на три коржі. Вершки збиваємо з маскарпоне і пудрою. Збираємо торт, викладаючи між коржами крем і половинки полуниць по краю.
+              </span>
+            </span>
+          </a>
+        </li>
+        <li class="item">
+          <a class="item__link" href="#modal-4">
+            <img class="item__img" src="img/cake4.jpg" alt="Шоколадний мус-торт">
+            <span class="recipe">
+              <img class="recipe__img" src="img/cake4.jpg" alt="">
+              <span class="recipe__title">Шоколадний мус-торт</span>
+              <span class="recipe__text">
+                <span class="recipe__list"><span>Корж: 150 г печива, 70 г масла</span><span>200 г чорного шоколаду</span><span>3 яйця</span><span>300 мл вершків 33%</span><span>10 г желатину</span><span>2 ст. л. какао</span></span>
+                Печиво подрібнюємо з маслом і утрамбовуємо на дно роз'ємної форми. Шоколад розтоплюємо, додаємо жовтки й розчинений желатин. Окремо збиваємо вершки та білки й обережно поєднуємо з шоколадною масою. Виливаємо на основу, прикрашаємо шоколадною крихтою та охолоджуємо 6 годин.
+              </span>
+            </span>
+          </a>
+        </li>
+        <li class="item">
+          <a class="item__link" href="#modal-5">
+            <img class="item__img" src="img/cake5.jpg" alt="Медовик з насінням">
+            <span class="recipe">
+              <img class="recipe__img" src="img/cake5.jpg" alt="">
+              <span class="recipe__title">Медовик з насінням</span>
+              <span class="recipe__text">
+                <span class="recipe__list"><span>3 ст. л. меду</span><span>2 яйця</span><span>150 г цукру</span><span>100 г масла</span><span>400 г борошна</span><span>1 ч. л. соди</span><span>Крем: 400 г сметани, 150 г пудри</span><span>300 г яблучного конфітюру</span><span>100 г насіння соняшника</span></span>
+                На паровій бані розігріваємо мед, масло й цукор, додаємо соду і яйця, потім борошно. Розкачуємо 4 коржі та печемо по 5 хв при 180 °C. Перемащуємо по черзі сметанним кремом і конфітюром, верх поливаємо медом і посипаємо обсмаженим насінням.
+              </span>
+            </span>
+          </a>
+        </li>
+        <li class="item">
+          <a class="item__link" href="#modal-6">
+            <img class="item__img" src="img/cake6.jpg" alt="Лимонні тістечка з маком">
+            <span class="recipe">
+              <img class="recipe__img" src="img/cake6.jpg" alt="">
+              <span class="recipe__title">Лимонні тістечка з маком</span>
+              <span class="recipe__text">
+                <span class="recipe__list"><span>200 г борошна</span><span>100 г масла</span><span>1 яйце</span><span>70 г цукру</span><span>Начинка: 150 г маку, 2 ст. л. меду, цедра лимона</span><span>Глазур: 100 г пудри, 2 ст. л. лимонного соку</span></span>
+                Замішуємо пісочне тісто з борошна, масла, яйця й цукру та охолоджуємо 30 хв. Мак запарюємо, перетираємо з медом і цедрою. Викладаємо тісто у формочки, заповнюємо начинкою й печемо 20 хв при 180 °C. Охолоджені тістечка покриваємо лимонною глазур'ю.
+              </span>
+            </span>
+          </a>
+        </li>
+        <li class="item">
+          <a class="item__link" href="#modal-7">
+            <img class="item__img" src="img/cake7.jpg" alt="Сирний торт з желе">
+            <span class="recipe">
+              <img class="recipe__img" src="img/cake7.jpg" alt="">
+              <span class="recipe__title">Сирний торт з желе</span>
+              <span class="recipe__text">
+                <span class="recipe__list"><span>Бісквіт: 4 яйця, 120 г цукру, 120 г борошна</span><span>500 г м'якого сиру</span><span>200 мл вершків</span><span>100 г цукру</span><span>20 г желатину</span><span>1 банка консервованих персиків</span><span>1 пачка желе</span></span>
+                Печемо бісквіт і кладемо його на дно форми. Сир збиваємо з цукром і вершками, додаємо розчинений желатин, виливаємо на бісквіт і охолоджуємо. Зверху викладаємо часточки персиків і заливаємо прохолодним желе. Тримаємо в холодильнику до повного застигання.
+              </span>
+            </span>
+          </a>
+        </li>
+        <li class="item">
+          <a class="item__link" href="#modal-8">
+            <img class="item__img" src="img/cake8.jpg" alt="Вафельний торт «Смачний»">
+            <span class="recipe">
+              <img class="recipe__img" src="img/cake8.jpg" alt="">
+              <span class="recipe__title">Вафельний торт «Смачний»</span>
+              <span class="recipe__text">
+                <span class="recipe__list"><span>1 пачка вафельних коржів</span><span>1 банка вареного згущеного молока</span><span>200 г масла</span><span>100 г смажених горіхів</span><span>50 г шоколаду</span></span>
+                Масло збиваємо до пишності й поступово додаємо згущене молоко. Кожен вафельний корж промащуємо кремом і складаємо стосом. Боки й верх торта обмащуємо кремом, посипаємо подрібненими горіхами та тертим шоколадом. Даємо постояти 3–4 години, щоб коржі просочилися.
+              </span>
+            </span>
+          </a>
+        </li>
+        </ul>
+      </div>
+      <div class="slider__arrows">
+        <label for="slide-1" class="arrow arrow--prev arrow--to-1" aria-label="Назад"></label>
+        <label for="slide-2" class="arrow arrow--prev arrow--to-2" aria-label="Назад"></label>
+        <label for="slide-3" class="arrow arrow--prev arrow--to-3" aria-label="Назад"></label>
+        <label for="slide-4" class="arrow arrow--prev arrow--to-4" aria-label="Назад"></label>
+        <label for="slide-2" class="arrow arrow--next arrow--to-2" aria-label="Вперед"></label>
+        <label for="slide-3" class="arrow arrow--next arrow--to-3" aria-label="Вперед"></label>
+        <label for="slide-4" class="arrow arrow--next arrow--to-4" aria-label="Вперед"></label>
+        <label for="slide-5" class="arrow arrow--next arrow--to-5" aria-label="Вперед"></label>
+      </div>
+    </div>
+
+    <div class="dots">
+      <label for="slide-1" class="dot dot--1"></label>
+      <label for="slide-2" class="dot dot--2"></label>
+      <label for="slide-3" class="dot dot--3"></label>
+      <label for="slide-4" class="dot dot--4"></label>
+      <label for="slide-5" class="dot dot--5"></label>
+    </div>
+  </div>
+
+  <!-- модальні вікна (поза слайдером, бо transform ламає position: fixed) -->
+  <div class="modal" id="modal-1">
+    <a class="modal__overlay" href="#gallery" aria-label="Закрити"></a>
+    <img class="modal__img" src="img/cake1.jpg" alt="Торт «Сметанковий»">
+    <a class="modal__close" href="#gallery" aria-label="Закрити"></a>
+  </div>
+  <div class="modal" id="modal-2">
+    <a class="modal__overlay" href="#gallery" aria-label="Закрити"></a>
+    <img class="modal__img" src="img/cake2.jpg" alt="Горіхово-морквяний кекс">
+    <a class="modal__close" href="#gallery" aria-label="Закрити"></a>
+  </div>
+  <div class="modal" id="modal-3">
+    <a class="modal__overlay" href="#gallery" aria-label="Закрити"></a>
+    <img class="modal__img" src="img/cake3.jpg" alt="Полуничний торт з маком">
+    <a class="modal__close" href="#gallery" aria-label="Закрити"></a>
+  </div>
+  <div class="modal" id="modal-4">
+    <a class="modal__overlay" href="#gallery" aria-label="Закрити"></a>
+    <img class="modal__img" src="img/cake4.jpg" alt="Шоколадний мус-торт">
+    <a class="modal__close" href="#gallery" aria-label="Закрити"></a>
+  </div>
+  <div class="modal" id="modal-5">
+    <a class="modal__overlay" href="#gallery" aria-label="Закрити"></a>
+    <img class="modal__img" src="img/cake5.jpg" alt="Медовик з насінням">
+    <a class="modal__close" href="#gallery" aria-label="Закрити"></a>
+  </div>
+  <div class="modal" id="modal-6">
+    <a class="modal__overlay" href="#gallery" aria-label="Закрити"></a>
+    <img class="modal__img" src="img/cake6.jpg" alt="Лимонні тістечка з маком">
+    <a class="modal__close" href="#gallery" aria-label="Закрити"></a>
+  </div>
+  <div class="modal" id="modal-7">
+    <a class="modal__overlay" href="#gallery" aria-label="Закрити"></a>
+    <img class="modal__img" src="img/cake7.jpg" alt="Сирний торт з желе">
+    <a class="modal__close" href="#gallery" aria-label="Закрити"></a>
+  </div>
+  <div class="modal" id="modal-8">
+    <a class="modal__overlay" href="#gallery" aria-label="Закрити"></a>
+    <img class="modal__img" src="img/cake8.jpg" alt="Вафельний торт «Смачний»">
+    <a class="modal__close" href="#gallery" aria-label="Закрити"></a>
+  </div>
+</body>
+</html>
