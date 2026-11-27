@@ -1,0 +1,41 @@
+/* Практична 7. Завдання 6. Сітка зображень (flexbox) */
+body {
+  margin: 0;
+  padding: 10px;
+  font-family: Arial, sans-serif;
+}
+
+h1 {
+  margin: 10px 5px 15px;
+  font-weight: 400;
+  color: #1c2b3a;
+}
+
+.image-grid {
+  display: flex;
+  flex-wrap: wrap;      /* фото переносяться на новий рядок */
+}
+
+.image-grid img {
+  flex: 1 1 auto;       /* розтягуються, заповнюючи весь рядок */
+  height: 220px;        /* однакова висота в рядку */
+  min-width: 220px;
+  margin: 5px;
+  object-fit: cover;    /* фото не спотворюються */
+  transition: transform 0.25s;
+}
+
+.image-grid img:hover {
+  transform: scale(1.03);
+}
+
+@media (max-width: 600px) {
+  .image-grid {
+    flex-direction: column;
+  }
+
+  .image-grid img {
+    height: auto;
+    min-width: 0;
+  }
+}

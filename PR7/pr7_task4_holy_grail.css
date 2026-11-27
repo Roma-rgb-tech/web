@@ -1,0 +1,54 @@
+/* Практична 7. Завдання 3. «Святий Ґрааль» на flexbox */
+
+/* Крок 3. Візуалізація блоків */
+body {
+  margin: 0px;
+}
+
+header,
+footer,
+.columns > * {
+  margin: 10px;
+  padding: 20px;
+  background-color: lightgray;
+  border-radius: 10px;
+}
+
+/* Крок 6. Обгортка на всю висоту вікна:
+   «підвал» завжди внизу вікна або внизу вмісту */
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* «Шапка» та «підвал» мають свою висоту і не розтягуються —
+   їх винесено з ряду колонок, як радить завдання */
+.wrapper header,
+.wrapper footer {
+  flex: none;
+}
+
+/* Крок 4. Три колонки — flex-контейнер, що забирає всю вільну висоту */
+.columns {
+  display: flex;
+  flex: 1;
+  flex-flow: row wrap;
+}
+
+.columns > * {
+  flex: 1;
+}
+
+/* центральна колонка ширша за бічні */
+.columns main {
+  flex: 2;
+}
+
+/* Крок 5 (варіант з flex-basis): на вузькому екрані
+   кожна колонка займає всю ширину */
+@media (max-width: 600px) {
+  .columns > * {
+    flex: 1 1 100vw;
+  }
+}

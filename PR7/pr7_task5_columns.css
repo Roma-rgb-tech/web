@@ -1,0 +1,43 @@
+/* Практична 7. Завдання 4. Flex columns:
+   заголовок — вузький стовпчик зліва,
+   колонтитул — вузький стовпчик справа */
+
+body {
+  margin: 0px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.wrapper > * {
+  margin: 10px;
+  padding: 20px;
+  background-color: lightgray;
+  border-radius: 10px;
+}
+
+.wrapper {
+  display: flex;
+  flex-flow: column wrap; /* елементи йдуть стовпчиком і переносяться у новий стовпчик */
+  height: 100vh;
+}
+
+.wrapper > * {
+  flex: 1;
+}
+
+/* шапка й підвал займають усю висоту, тому кожен
+   опиняється у власному стовпчику */
+.wrapper header,
+.wrapper footer {
+  flex: 0 0 calc(100% - 20px);
+  width: calc(12% - 20px);
+}
+
+/* три розділи стоять один під одним у середньому стовпчику */
+.wrapper aside,
+.wrapper main,
+.wrapper section {
+  width: calc(76% - 20px);
+}

@@ -1,0 +1,27 @@
+/* Практична 7. Завдання 3. Основи flexbox */
+body {
+    margin: 0px;
+}
+
+p {
+    margin: 10px;
+    padding: 20px;
+    background-color: lightgray;
+    border-radius: 10px;
+}
+
+/* контейнер: усі абзаци в один рядок */
+.fc {
+    display: flex;
+}
+
+/* кожен абзац займає рівну частку ширини */
+.fc p {
+    flex: 1;
+}
+
+/* другий абзац удвічі ширший, а за висотою
+   всі абзаци розтягуються однаково (align-items: stretch) */
+.fc .second {
+    flex: 2;
+}
